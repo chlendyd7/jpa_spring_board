@@ -1,10 +1,14 @@
 package com.codingrecipe.board.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Table(name="board_sts_jpa")
-public class BoardEntity {
+@Getter
+@Setter
+@Table(name="board_table")
+public class BoardEntity extends  BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,6 +17,15 @@ public class BoardEntity {
     @Column(length = 20, nullable = false)
     private String boardWriter;
 
-    @Column(length = 30, nullable = false)
+    @Column
+    private String boardPass;
+
+    @Column
     private String boardTitle;
+
+    @Column(length = 500)
+    private String boardContents;
+
+    @Column
+    private int boardHits;
 }
