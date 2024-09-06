@@ -5,12 +5,20 @@
     <title>index</title>
 </head>
 <body>
-    <button onclick="saveReq()">글 작성</button>
-    <a href="/board/save">글작성(링크)</a>
+    <div>
+        <button onclick="saveReq()">글 작성</button>
+        <a href="/board/save">글작성(링크)</a>
+    </div>
+    <div>
+        <button onclick="listReq()">글 목록</button>
+    </div>
 </body>
 <script>
     const saveReq = () => {
         location.href = "/board/save";
+    }
+    const listReq = () => {
+        location.href = "/board/"
     }
 </script>
 </html>
