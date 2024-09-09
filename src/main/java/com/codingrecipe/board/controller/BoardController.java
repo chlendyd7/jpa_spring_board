@@ -18,6 +18,7 @@ public class BoardController {
 
     @GetMapping("/save")
     public String saveForm() {
+
         return "save";
     }
 
@@ -33,6 +34,7 @@ public class BoardController {
     public String findAll(Model model) {
         List<BoardDTO> boardDTOList = boardService.findAll();
         model.addAttribute("boardList", boardDTOList);
+
         return "list";
     }
 
@@ -41,6 +43,23 @@ public class BoardController {
         boardService.updateHits(id);
         BoardDTO boardDTO = boardService.findById(id);
         model.addAttribute("board", boardDTO);
+
+        return "detail";
+    }
+
+    @GetMapping("/update/{id}")
+    public String updateForm(@PathVariable Long id, Model model){
+        BoardDTO boardDTO = boardService.findById(id);
+        model.addAttribute("boardUpdate", boardDTO);
+
+        return "update";
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute BoardDTO boardDTO, Model model) {
+        BoardDTO board = boardService.update(boardDTO);
+        model.addAttribute("board", boardDTO);
+
         return "detail";
     }
 }

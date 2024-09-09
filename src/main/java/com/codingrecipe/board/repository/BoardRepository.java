@@ -1,5 +1,6 @@
 package com.codingrecipe.board.repository;
 
+import com.codingrecipe.board.controller.dto.BoardDTO;
 import com.codingrecipe.board.entity.BoardEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
